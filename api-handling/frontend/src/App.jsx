@@ -13,7 +13,7 @@ function App() {
         Handle API Like Pro
       </h1>
       <Products />
-      {/* <Fruits /> */}
+      <Fruits />
       <Animals />
     </>
   );

@@ -14,7 +14,7 @@ const Fruits = () => {
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [search]);
+  }, [fruitSearch]);
 
   return (
     <div>
