@@ -29,17 +29,17 @@ const Animals = () => {
         />
       </div>
       <div className="text-center text-3xl font-bold">
-        {error && (
+        {animalError && (
           <h2 className="text-red-700 font-bold">
             Something Went Wrong With Animals
           </h2>
         )}
-        {loading && (
+        {loadAnimals && (
           <h2 className="text-green-700 font-bold">
             Wait Animals Are Coming...
           </h2>
         )}
-        Animals : {products.length}
+        Animals : {animals.length}
       </div>
     </div>
   );
