@@ -269,6 +269,92 @@ app.get("/api/animals", (req, res) => {
   }, 6000);
 });
 
+app.get("/api/users", (req, res) => {
+  console.log("Users Are Called");
+  const users = [
+    {
+      id: 1,
+      name: "Prathamesh",
+      age: 29,
+      city: "Kolhapur",
+      profession: "Frontend Developer",
+    },
+    {
+      id: 2,
+      name: "Amit",
+      age: 25,
+      city: "Pune",
+      profession: "Software Engineer",
+    },
+    {
+      id: 3,
+      name: "Sneha",
+      age: 27,
+      city: "Mumbai",
+      profession: "UI/UX Designer",
+    },
+    {
+      id: 4,
+      name: "Rahul",
+      age: 31,
+      city: "Bangalore",
+      profession: "DevOps Engineer",
+    },
+    {
+      id: 5,
+      name: "Priya",
+      age: 24,
+      city: "Hyderabad",
+      profession: "QA Engineer",
+    },
+    {
+      id: 6,
+      name: "Karan",
+      age: 28,
+      city: "Delhi",
+      profession: "Backend Developer",
+    },
+    {
+      id: 7,
+      name: "Anjali",
+      age: 26,
+      city: "Chennai",
+      profession: "Data Analyst",
+    },
+    {
+      id: 8,
+      name: "Vikram",
+      age: 33,
+      city: "Nagpur",
+      profession: "Project Manager",
+    },
+    {
+      id: 9,
+      name: "Neha",
+      age: 22,
+      city: "Nashik",
+      profession: "Graphic Designer",
+    },
+    {
+      id: 10,
+      name: "Rohit",
+      age: 30,
+      city: "Jaipur",
+      profession: "Full Stack Developer",
+    },
+  ];
+
+  if (req.query.search) {
+    const filteredUser = users.filter((user) =>
+      user.name.toLowerCase().includes(req.query.search.toLowerCase()),
+    );
+    res.send(filteredUser);
+    return;
+  }
+  setTimeout(() => {
+    res.send(users);
+  }, 8000);
+});
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {

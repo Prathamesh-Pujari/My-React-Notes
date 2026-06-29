@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useDataFetch from "../hooks/useDataFetch";
+import Card from "./Card";
 
 const Animals = () => {
   const [search, setSearch] = useState("");
@@ -20,7 +21,7 @@ const Animals = () => {
     <div>
       <div className="flex justify-center">
         <input
-          className="border-4 w-full max-w-md"
+          className="w-full max-w-md  border-2 mb-5"
           placeholder="Animal Search "
           type="search"
           name="search"
@@ -39,7 +40,22 @@ const Animals = () => {
             Wait Animals Are Coming...
           </h2>
         )}
-        Animals : {animals.length}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {animals.map((animal) => (
+            <div
+              key={animal.id}
+              className="text-center justify-center text-2xl font-semibold"
+            >
+              <Card
+                name={animal.name}
+                details={[
+                  `life span : ${animal.lifespan} Years`,
+                  `Type : ${animal.type}`,
+                ]}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
